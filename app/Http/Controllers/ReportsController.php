@@ -17,9 +17,12 @@ class ReportsController extends Controller
     public function index() : View
     {
         //
+        
         return view('reports.index', [
             'reports' => Reports::with('user')->latest()->get(),
         ]);
+        
+        //return view('reports.index');
     }
 
     /**

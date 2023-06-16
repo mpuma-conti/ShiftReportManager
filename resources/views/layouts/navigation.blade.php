@@ -16,7 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.index')">
-                        {{ __('Reportes') }}
+                        {{ __('Reporte Diario') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.index')" >
+                        {{ __('Aire instrumental') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.index')">
+                        {{ __('Motores') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.index')" >
+                        {{ __('Ver reportes') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -74,7 +83,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.index')">
-                {{ __('Reportes') }}
+                {{ __('Reporte Diario') }}
             </x-responsive-nav-link>
         </div>
 
