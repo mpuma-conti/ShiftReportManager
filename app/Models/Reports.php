@@ -12,7 +12,12 @@ class Reports extends Model
     use HasFactory;
 
     protected $fillable = [
+        'turno',
+        'jefe_turno',
+        'codigo_equipo',
         'descripcion',
+        'tiempo',
+        'importancia',
     ];
 
     public function user(): BelongsTo

@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('descripcion');
+            $table->string('turno');
+            $table->string('jefe_turno');
+            $table->string('codigo_equipo')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->string('tiempo')->nullable();
+            $table->string('importancia')->default('Baja');
             $table->timestamps();
         });
     }

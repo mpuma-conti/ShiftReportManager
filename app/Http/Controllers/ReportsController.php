@@ -39,13 +39,39 @@ class ReportsController extends Controller
     public function store(Request $request) : RedirectResponse
     {
         //
+        /*
         $validated = $request->validate([
             'descripcion' => 'required|string|max:255',
         ]);
+        
+
+        
  
         //We're creating a record that will belong to the logged in user by leveraging a chirps relationship in app/Models/User.php
         $request->user()->reports()->create($validated);
- 
+        */
+
+
+        /*
+        $reporte_diario = $request;
+        $reporte_diario_data = [];
+        foreach ($reporte_diario as $key => $value) {
+            $reporte_diario_data[] = $value;
+        }
+        */
+        $data = $request->all();
+
+        //$importancia_1 = ($request->has('importancia_1')) ? "Media" : "Baja";
+
+        $request->user()->reports()->createMany([
+            ['turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_1'], 'descripcion' => $data['descripcion_1'], 'tiempo' => $data['tiempo_1'], 'importancia' => $importancia = ($request->has('importancia_1')) ? "Media" : "Baja" ],
+            ['turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_2'], 'descripcion' => $data['descripcion_2'], 'tiempo' => $data['tiempo_2'], 'importancia' => $importancia = ($request->has('importancia_2')) ? "Media" : "Baja" ],
+            ['turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_3'], 'descripcion' => $data['descripcion_3'], 'tiempo' => $data['tiempo_3'], 'importancia' => $importancia = ($request->has('importancia_3')) ? "Media" : "Baja" ],
+            ['turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_4'], 'descripcion' => $data['descripcion_4'], 'tiempo' => $data['tiempo_4'], 'importancia' => $importancia = ($request->has('importancia_4')) ? "Media" : "Baja" ],
+            ['turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_5'], 'descripcion' => $data['descripcion_5'], 'tiempo' => $data['tiempo_5'], 'importancia' => $importancia = ($request->has('importancia_5')) ? "Media" : "Baja" ],
+            ['turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_6'], 'descripcion' => $data['descripcion_6'], 'tiempo' => $data['tiempo_6'], 'importancia' => $importancia = ($request->has('importancia_6')) ? "Media" : "Baja" ],
+        ]);
+
         return redirect(route('reportes.index'));
     }
 

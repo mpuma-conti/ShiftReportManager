@@ -9,7 +9,14 @@
         <form method="POST" action="{{ route('reportes.store') }}" class="w-full max-w-lg">
         @csrf
   <div class="flex flex-wrap -mx-3 mb-6">
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+        Fecha
+      </label>
+      <input class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" name="fecha" required>
+      <x-input-error :messages="$errors->get('message')" class="mt-2" />
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Turno
       </label>
@@ -21,7 +28,7 @@
         </select>
         <x-input-error :messages="$errors->get('message')" class="mt-2" />
     </div>
-    <div class="w-full md:w-1/2 px-3">
+    <div class="w-full md:w-1/3 px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
        Jefe de turno
       </label>
@@ -47,104 +54,115 @@ https://tailwindcss.com/docs/margin
 https://www.youtube.com/watch?v=trdKCyQ2bdc
     --}}
   <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
+    <div class="w-1/6 md:w-1/6 px-3 mb-0 md:mb-0" style="width: 20%;">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
         Código
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="LIC220" name="codigo_1">
     </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+    <div class="w-full md:w-1/2 px-3 mb-0 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
         Descripción del trabajo
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
     </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
+    <div class="w-1/6 md:w-1/6 px-3 mb-0 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
         Tiempo (horas)
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="2" name="tiempo_1">
     </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
+    <div class="w-1/6 md:w-1/6 px-3 mb-0 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
         ¿Importante?
       </label>
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px;" name="importancia_1" >
     </div>
   </div>
 
   <div class="flex flex-wrap -mx-3 mb-2">
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_1">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="LIC220" name="codigo_1">
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_1">
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="8" name="tiempo_1">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1" >
+      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1">
     </div>
   </div>
 
   <div class="flex flex-wrap -mx-3 mb-2">
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_2">
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_2">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_2">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1" >
+      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_2">
     </div>
   </div>
 
   <div class="flex flex-wrap -mx-3 mb-2">
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_3">
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_3">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_3">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1" >
+      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_3">
     </div>
   </div>
 
   <div class="flex flex-wrap -mx-3 mb-2">
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_4">
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_4">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_4">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1" >
+      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_4">
     </div>
   </div>
 
   <div class="flex flex-wrap -mx-3 mb-2">
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_5">
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_5">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_1">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_5">
     </div>
     <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1" >
+      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_5">
+    </div>
+  </div>
+
+  <div class="flex flex-wrap -mx-3 mb-2">
+    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_6">
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_6">
+    </div>
+    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_6">
+    </div>
+    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
+      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_6">
     </div>
   </div>
 
