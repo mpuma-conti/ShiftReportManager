@@ -34,4 +34,8 @@ Route::resource('reportes', ReportsController::class)
     ->only(['index', 'store'])
     ->middleware(['auth']);
 
+Route::get('/plantilla', function () {
+        return view('plantilla');
+})->name('plantilla');
+
 require __DIR__.'/auth.php';
