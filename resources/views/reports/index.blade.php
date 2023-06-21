@@ -1,174 +1,146 @@
 <x-app-layout>
-    <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <form method="POST" action="{{ route('reportes.store') }}">
-            
-            
-            
-        </form>
 
-        <form method="POST" action="{{ route('reportes.store') }}" class="w-full max-w-lg">
-        @csrf
-  <div class="flex flex-wrap -mx-3 mb-6">
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-        Fecha
-      </label>
-      <input class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" name="fecha" required>
-      <x-input-error :messages="$errors->get('message')" class="mt-2" />
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-        Turno
-      </label>
-        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="turno" name="turno" required>
-            <option value="" selected disabled hidden>Selecciona el turno</option>  
-            <option value="1">1er turno</option>
-            <option value="2">2do turno</option>
-            <option value="3">3er turno</option>
-        </select>
-        <x-input-error :messages="$errors->get('message')" class="mt-2" />
-    </div>
-    <div class="w-full md:w-1/3 px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-       Jefe de turno
-      </label>
-        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="jefe_turno" name="jefe_turno" required>
-            <option value="" selected disabled hidden>Selecciona</option>  
-            <option value="Elio Monje">Elio Monje</option>
-            <option value="Gonzalo Delgado">Gonzalo Delgado</option>
-            <option value="Jorge Espinoza">Jorge Espinoza</option>
-            <option value="Jose Granados">José Granados</option>
-            <option value="Ricardo Noriega">Ricardo Noriega</option>
-        </select>
-    </div>
-  </div>
-  {{-- Inicia tabla de reporte 
-    
-    mantto.inkabor.rioseco@gmail.cmo
-Inkabor999
-gpfhlexqhujhgtiw
+<div class="container-xl px-4 mt-n10">
+                        <!-- Wizard card example with navigation-->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="tab-content" id="cardTabContent">
+                                    <!-- Wizard tab pane item 1-->
+                                    <div class="tab-pane py-5 py-xl-10 fade show active" id="wizard1" role="tabpanel" aria-labelledby="wizard1-tab">
+                                        <div class="row justify-content-center">
+                                            <div class="col-xxl-6 col-xl-8">
+                                                <h3 class="text-primary">Reporte diario</h3>
+                                                <form method="POST" action="{{ route('reportes.store') }}">
+                                                @csrf
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-md-4">
+                                                            <label class="small mb-1" for="fecha">Fecha</label>          
+                                                            <input class="form-control" type="date" id="fecha" name="fecha" required>
+                                                        </div>
+                                                        <div class="mb-3 col-md-4">
+                                                            <label class="small mb-1" for="turno">Turno</label>
+                                                            <select class="form-select" id="turno" name="turno" required>
+                                                                <option value="" selected disabled hidden>Selecciona</option>  
+                                                                <option value="1">1er turno</option>
+                                                                <option value="2">2do turno</option>
+                                                                <option value="3">3er turno</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3 col-md-4">
+                                                            <label class="small mb-1" for="jefe_turno">Jefe de turno</label>
+                                                            <select class="form-select" id="jefe_turno" name="jefe_turno" required>
+                                                                <option value="" selected disabled hidden>Selecciona</option>  
+                                                                <option value="Elio Monje">Elio Monje</option>
+                                                                <option value="Gonzalo Delgado">Gonzalo Delgado</option>
+                                                                <option value="Jorge Espinoza">Jorge Espinoza</option>
+                                                                <option value="Jose Granados">José Granados</option>
+                                                                <option value="Ricardo Noriega">Ricardo Noriega</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <label class="small mb-1">Código</label>
+                                                            <input class="form-control" type="text" placeholder="LIC220" name="codigo_1">
+                                                        </div>
+                                                        <div class="mb-3 col-6">
+                                                            <label class="small mb-1">Descripción</label>
+                                                            <input class="form-control" type="text" name="descripcion_1">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <label class="small mb-1">Horas</label>
+                                                            <input class="form-control" type="text" placeholder="8" name="tiempo_1">
+                                                        </div>
+                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
+                                                            <label class="small mb-1">¿Importante?</label>
+                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="codigo_2">
+                                                        </div>
+                                                        <div class="mb-3 col-6">
+                                                            <input class="form-control" type="text" name="descripcion_2">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="tiempo_2">
+                                                        </div>
+                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
+                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="codigo_3">
+                                                        </div>
+                                                        <div class="mb-3 col-6">
+                                                            <input class="form-control" type="text" name="descripcion_3">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="tiempo_3">
+                                                        </div>
+                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
+                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_3">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="codigo_4">
+                                                        </div>
+                                                        <div class="mb-3 col-6">
+                                                            <input class="form-control" type="text" name="descripcion_4">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="tiempo_4">
+                                                        </div>
+                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
+                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_4">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="codigo_5">
+                                                        </div>
+                                                        <div class="mb-3 col-6">
+                                                            <input class="form-control" type="text" name="descripcion_5">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="tiempo_5">
+                                                        </div>
+                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
+                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_5">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="codigo_6">
+                                                        </div>
+                                                        <div class="mb-3 col-6">
+                                                            <input class="form-control" type="text" name="descripcion_6">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <input class="form-control" type="text" name="tiempo_6">
+                                                        </div>
+                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
+                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_6">
+                                                        </div>
+                                                    </div>
+                                                    <hr class="my-4">
+                                                    <x-input-error :messages="$errors->get('message')" class="mt-2" />
+                                                    <div class="d-flex justify-content-between">
+                                                        <button class="btn btn-primary" type="button">{{ __('Enviar reporte') }}</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+</div>
 
-
-https://tailwindui.com/components/application-ui/forms/form-layouts
-https://tailwindcss.com/docs/margin
-https://www.youtube.com/watch?v=trdKCyQ2bdc
-    --}}
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/6 px-3 mb-0 md:mb-0" style="width: 20%;">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-        Código
-      </label>
-    </div>
-    <div class="w-full md:w-1/2 px-3 mb-0 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-        Descripción del trabajo
-      </label>
-    </div>
-    <div class="w-1/6 md:w-1/6 px-3 mb-0 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        Tiempo (horas)
-      </label>
-    </div>
-    <div class="w-1/6 md:w-1/6 px-3 mb-0 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        ¿Importante?
-      </label>
-    </div>
-  </div>
-
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="LIC220" name="codigo_1">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_1">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="8" name="tiempo_1">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_1">
-    </div>
-  </div>
-
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_2">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_2">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_2">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_2">
-    </div>
-  </div>
-
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_3">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_3">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_3">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_3">
-    </div>
-  </div>
-
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_4">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_4">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_4">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_4">
-    </div>
-  </div>
-
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_5">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_5">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_5">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_5">
-    </div>
-  </div>
-
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="codigo_6">
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" name="descripcion_6">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" name="tiempo_6">
-    </div>
-    <div class="w-1/6 md:w-1/3 px-3 mb-6 md:mb-0">
-      <input type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" style="margin-left: 20px;  margin-top: 5px; margin-right: 40px;" name="importancia_6">
-    </div>
-  </div>
-
-  <x-input-error :messages="$errors->get('message')" class="mt-2" />
-            <x-primary-button class="mt-4">{{ __('Enviar reporte') }}</x-primary-button>
-</form>
 
         <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
             @foreach ($reports as $report)
@@ -189,5 +161,5 @@ https://www.youtube.com/watch?v=trdKCyQ2bdc
             @endforeach
         </div>
 
-    </div>
+
 </x-app-layout>
