@@ -12,6 +12,7 @@ class Reports extends Model
     use HasFactory;
 
     protected $fillable = [
+        'fecha',
         'turno',
         'jefe_turno',
         'codigo_equipo',

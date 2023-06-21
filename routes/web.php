@@ -30,9 +30,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('reportes', ReportsController::class)
+Route::resource('nuevo-reporte', ReportsController::class)
     ->only(['index', 'store'])
     ->middleware(['auth']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/reportes', [ReportsController::class, 'mostrarTodos'])->name('reportes.mostrarTodos');
+    //Route::patch('/reportes', [ProfileController::class, 'update'])->name('profile.update');
+    //Route::delete('/reportes', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+/*Route::get('reportes', function () {
+        return view('reports.all');
+})->name('reportes');*/
 
 Route::get('/plantilla', function () {
         return view('plantilla');
