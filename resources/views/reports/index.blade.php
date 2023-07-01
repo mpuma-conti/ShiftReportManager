@@ -8,7 +8,7 @@
                                     <!-- Wizard tab pane item 1-->
                                     <div class="tab-pane py-5 py-xl-10 fade show active" id="wizard1" role="tabpanel" aria-labelledby="wizard1-tab">
                                         <div class="row justify-content-center">
-                                            <div class="col-xxl-6 col-xl-8">
+                                            <div class="col-xxl-12 col-xl-12">
                                                 <h3 class="text-primary">Reporte diario</h3>
                                                 <form method="POST" action="{{ route('nuevo-reporte.store') }}">
                                                 @csrf
@@ -40,90 +40,150 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col-2">
-                                                            <label class="small mb-1">Código</label>
-                                                            <input class="form-control" type="text" placeholder="LIC220" name="codigo_1">
-                                                        </div>
-                                                        <div class="mb-3 col-6">
-                                                            <label class="small mb-1">Descripción</label>
-                                                            <input class="form-control" type="text" name="descripcion_1">
+                                                            <label class="small mb-1">Categoría</label>
+                                                            <select class="form-select" id="categoria_1" name="categoria_1" required>
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Rutinario">Rutinario</option>
+                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
+                                                                <option value="Cambio de equipo">Cambio de equipo</option>
+                                                                <option value="Modificación de equipo">Modificación de equipo</option>
+                                                                <option value="OT programada">OT programada</option>
+                                                                <option value="Emergencia planta">Emergencia planta</option>
+                                                                <option value="Otros">Otros</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-2">
-                                                            <label class="small mb-1">Horas</label>
-                                                            <input class="form-control" type="text" placeholder="8" name="tiempo_1">
+                                                            <label class="small mb-1">Código de planta</label>
+                                                            <input class="form-control" type="text" placeholder="MP201" name="codigo_1" required>
                                                         </div>
+                                                        <div class="mb-3 col-7">
+                                                            <label class="small mb-1">Descripción</label>
+                                                            <input class="form-control" type="text" id="descripcion_1" name="descripcion_1" required>
+                                                        </div>
+                                                        <div class="mb-3 col-1">
+                                                            <label class="small mb-1">Horas</label>
+                                                            <input class="form-control" type="text" placeholder="8" name="tiempo_1" required>
+                                                        </div>
+                                                        <!--
                                                         <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
                                                             <label class="small mb-1">¿Importante?</label>
                                                             <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_1">
                                                         </div>
+                                                        -->
                                                     </div>
                                                     <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" id="categoria_2" name="categoria_2">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Rutinario">Rutinario</option>
+                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
+                                                                <option value="Cambio de equipo">Cambio de equipo</option>
+                                                                <option value="Modificación de equipo">Modificación de equipo</option>
+                                                                <option value="OT programada">OT programada</option>
+                                                                <option value="Emergencia planta">Emergencia planta</option>
+                                                                <option value="Otros">Otros</option>
+                                                            </select>
+                                                        </div>    
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" name="codigo_2">
                                                         </div>
-                                                        <div class="mb-3 col-6">
-                                                            <input class="form-control" type="text" name="descripcion_2">
+                                                        <div class="mb-3 col-7">
+                                                            <input class="form-control" type="text" id="descripcion_2" name="descripcion_2">
                                                         </div>
-                                                        <div class="mb-3 col-2">
+                                                        <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_2">
-                                                        </div>
-                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_2">
                                                         </div>
                                                     </div>
                                                     <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" id="categoria_3" name="categoria_3">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Rutinario">Rutinario</option>
+                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
+                                                                <option value="Cambio de equipo">Cambio de equipo</option>
+                                                                <option value="Modificación de equipo">Modificación de equipo</option>
+                                                                <option value="OT programada">OT programada</option>
+                                                                <option value="Emergencia planta">Emergencia planta</option>
+                                                                <option value="Otros">Otros</option>
+                                                            </select>
+                                                        </div>
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" name="codigo_3">
                                                         </div>
-                                                        <div class="mb-3 col-6">
-                                                            <input class="form-control" type="text" name="descripcion_3">
+                                                        <div class="mb-3 col-7">
+                                                            <input class="form-control" type="text" id="descripcion_3" name="descripcion_3">
                                                         </div>
-                                                        <div class="mb-3 col-2">
+                                                        <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_3">
-                                                        </div>
-                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_3">
                                                         </div>
                                                     </div>
                                                     <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" id="categoria_4" name="categoria_4">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Rutinario">Rutinario</option>
+                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
+                                                                <option value="Cambio de equipo">Cambio de equipo</option>
+                                                                <option value="Modificación de equipo">Modificación de equipo</option>
+                                                                <option value="OT programada">OT programada</option>
+                                                                <option value="Emergencia planta">Emergencia planta</option>
+                                                                <option value="Otros">Otros</option>
+                                                            </select>
+                                                        </div>
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" name="codigo_4">
                                                         </div>
-                                                        <div class="mb-3 col-6">
-                                                            <input class="form-control" type="text" name="descripcion_4">
+                                                        <div class="mb-3 col-7">
+                                                            <input class="form-control" type="text" id="descripcion_4" name="descripcion_4">
                                                         </div>
-                                                        <div class="mb-3 col-2">
+                                                        <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_4">
-                                                        </div>
-                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_4">
                                                         </div>
                                                     </div>
                                                     <div class="row gx-3">
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" id="categoria_5" name="categoria_5">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Rutinario">Rutinario</option>
+                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
+                                                                <option value="Cambio de equipo">Cambio de equipo</option>
+                                                                <option value="Modificación de equipo">Modificación de equipo</option>
+                                                                <option value="OT programada">OT programada</option>
+                                                                <option value="Emergencia planta">Emergencia planta</option>
+                                                                <option value="Otros">Otros</option>
+                                                            </select>
+                                                        </div>
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" name="codigo_5">
                                                         </div>
-                                                        <div class="mb-3 col-6">
-                                                            <input class="form-control" type="text" name="descripcion_5">
+                                                        <div class="mb-3 col-7">
+                                                            <input class="form-control" type="text" id="descripcion_5" name="descripcion_5">
                                                         </div>
-                                                        <div class="mb-3 col-2">
+                                                        <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_5">
-                                                        </div>
-                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_5">
                                                         </div>
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="codigo_6">
-                                                        </div>
-                                                        <div class="mb-3 col-6">
-                                                            <input class="form-control" type="text" name="descripcion_6">
+                                                            <select class="form-select" id="categoria_6" name="categoria_6">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Rutinario">Rutinario</option>
+                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
+                                                                <option value="Cambio de equipo">Cambio de equipo</option>
+                                                                <option value="Modificación de equipo">Modificación de equipo</option>
+                                                                <option value="OT programada">OT programada</option>
+                                                                <option value="Emergencia planta">Emergencia planta</option>
+                                                                <option value="Otros">Otros</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="tiempo_6">
+                                                            <input class="form-control" type="text" name="codigo_6">
                                                         </div>
-                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
-                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_6">
+                                                        <div class="mb-3 col-7">
+                                                            <input class="form-control" type="text" id="descripcion_6" name="descripcion_6">
+                                                        </div>
+                                                        <div class="mb-3 col-1">
+                                                            <input class="form-control" type="text" name="tiempo_6">
                                                         </div>
                                                     </div>
                                                     <hr class="my-4">
@@ -140,4 +200,107 @@
                             </div>
                         </div>
 </div>
+
+
+<div class="modal fade" id="modalCambioEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cambio de equipo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form name="modalCambio">
+            <input type="hidden" id="fila" name="fila"/>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"><i data-feather="log-out"></i> Código de equipo saliente</label>
+            <input type="text" class="form-control" id="cod_equipo_saliente" name="cod_equipo_saliente" value="">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"><i data-feather="log-in"></i> Código de equipo entrante</label>
+            <input type="text" class="form-control" id="cod_equipo_entrante" name="cod_equipo_entrante" value="">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="guardarModalCambio()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+//codigo para mostrar popups en cambio de equipo
+const select_1 = document.getElementById('categoria_1');
+select_1.addEventListener('change', function(evt) {
+    if (this.value === 'Cambio de equipo') {
+        var myModal = new bootstrap.Modal(document.getElementById('modalCambioEquipo'), {
+            keyboard: true
+        })
+        myModal.toggle();
+        document.modalCambio.fila.value = 'descripcion_1'
+    }
+});
+const select_2 = document.getElementById('categoria_2');
+select_2.addEventListener('change', function(evt) {
+    if (this.value === 'Cambio de equipo') {
+        var myModal = new bootstrap.Modal(document.getElementById('modalCambioEquipo'), {
+            keyboard: true
+        })
+        myModal.toggle();
+        document.modalCambio.fila.value = 'descripcion_2'
+    }
+});
+const select_3 = document.getElementById('categoria_3');
+select_3.addEventListener('change', function(evt) {
+    if (this.value === 'Cambio de equipo') {
+        var myModal = new bootstrap.Modal(document.getElementById('modalCambioEquipo'), {
+            keyboard: true
+        })
+        myModal.toggle();
+        document.modalCambio.fila.value = 'descripcion_3'
+    }
+});
+const select_4 = document.getElementById('categoria_4');
+select_4.addEventListener('change', function(evt) {
+    if (this.value === 'Cambio de equipo') {
+        var myModal = new bootstrap.Modal(document.getElementById('modalCambioEquipo'), {
+            keyboard: true
+        })
+        myModal.toggle();
+        document.modalCambio.fila.value = 'descripcion_4'
+    }
+});
+const select_5 = document.getElementById('categoria_5');
+select_5.addEventListener('change', function(evt) {
+    if (this.value === 'Cambio de equipo') {
+        var myModal = new bootstrap.Modal(document.getElementById('modalCambioEquipo'), {
+            keyboard: true
+        })
+        myModal.toggle();
+        document.modalCambio.fila.value = 'descripcion_5'
+    }
+});
+const select_6 = document.getElementById('categoria_6');
+select_6.addEventListener('change', function(evt) {
+    if (this.value === 'Cambio de equipo') {
+        var myModal = new bootstrap.Modal(document.getElementById('modalCambioEquipo'), {
+            keyboard: true
+        })
+        myModal.toggle();
+        document.modalCambio.fila.value = 'descripcion_6'
+    }
+});
+
+function guardarModalCambio () {
+    var fila = document.modalCambio.fila.value
+    var cod_equipo_saliente = document.modalCambio.cod_equipo_saliente.value
+    var cod_equipo_entrante = document.modalCambio.cod_equipo_entrante.value
+    document.getElementById(fila).value = 'Sale ' + cod_equipo_saliente + ', ingresa ' + cod_equipo_entrante + '.'
+    var myModal = bootstrap.Modal.getInstance(document.getElementById('modalCambioEquipo'))
+    myModal.hide()
+}
+</script>
+
 </x-app-layout>
