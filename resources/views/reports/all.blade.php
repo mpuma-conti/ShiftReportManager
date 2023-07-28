@@ -59,7 +59,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href=""><i data-feather="edit"></i></a>
+                                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ route('report.edit', $report) }}"><i data-feather="edit"></i></a>
                                                 <a class="btn btn-datatable btn-icon btn-transparent-dark" href=""><i data-feather="trash-2"></i></a>
                                             </td>
                                         </tr>

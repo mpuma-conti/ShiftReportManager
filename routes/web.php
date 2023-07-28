@@ -35,10 +35,16 @@ Route::resource('nuevo-reporte', ReportsController::class)
     ->only(['index', 'store'])
     ->middleware(['auth']);
 
+//URL en plural
 Route::middleware('auth')->group(function () {
     Route::get('/reportes', [ReportsController::class, 'mostrarTodos'])->name('reportes.mostrarTodos');
-    //Route::patch('/reportes', [ProfileController::class, 'update'])->name('profile.update');
-    //Route::delete('/reportes', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+//la URL es reporte en singular
+Route::middleware('auth')->group(function () {
+    Route::get('/reporte', [ReportsController::class, 'edit'])->name('report.edit');
+    Route::patch('/reporte', [ProfileController::class, 'update'])->name('report.update');
+    Route::delete('/reporte', [ProfileController::class, 'destroy'])->name('report.destroy');
 });
 
 /*Route::get('reportes', function () {

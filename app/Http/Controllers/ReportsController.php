@@ -115,17 +115,31 @@ class ReportsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reports $reports)
+    public function edit(Reports $reports) : View
     {
         //
+        //$this->authorize('update', $reports);
+ 
+        return view('reports.edit', [
+            'report' => $reports,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reports $reports)
+    public function update(Request $request, Reports $reports) : RedirectResponse
     {
         //
+        //$this->authorize('update', $reports);
+ 
+        $validated = $request->validate([
+            'descripcion' => 'required|string|max:255',
+        ]);
+ 
+        $reports->update($validated);
+ 
+        return redirect(route('reports.all'));
     }
 
     /**
