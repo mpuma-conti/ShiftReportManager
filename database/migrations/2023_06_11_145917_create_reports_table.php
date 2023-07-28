@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('turno');
             $table->string('jefe_turno');
+            $table->string('categoria');
             $table->string('codigo_equipo')->nullable();
             $table->string('descripcion')->nullable();
             $table->string('tiempo')->nullable();

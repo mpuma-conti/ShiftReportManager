@@ -15,6 +15,7 @@ class Reports extends Model
         'fecha',
         'turno',
         'jefe_turno',
+        'categoria',
         'codigo_equipo',
         'descripcion',
         'tiempo',

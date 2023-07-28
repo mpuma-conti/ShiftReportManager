@@ -53,35 +53,52 @@ class ReportsController extends Controller
         /*
         $validated = $request->validate([
             'descripcion' => 'required|string|max:255',
-        ]);
-        
-
-        
+        ]);     
  
         //We're creating a record that will belong to the logged in user by leveraging a chirps relationship in app/Models/User.php
         $request->user()->reports()->create($validated);
-        */
-
-
-        /*
         $reporte_diario = $request;
         $reporte_diario_data = [];
         foreach ($reporte_diario as $key => $value) {
             $reporte_diario_data[] = $value;
         }
         */
+        //condicional usado previamente para determinar la importancia del reporte
+        //$importancia_1 = ($request->has('importancia_1')) ? "Media" : "Baja";
+        
         $data = $request->all();
 
-        //$importancia_1 = ($request->has('importancia_1')) ? "Media" : "Baja";
+        $reportes = [];
 
-        $request->user()->reports()->createMany([
-            ['fecha' => $data['fecha'], 'turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_1'], 'descripcion' => $data['descripcion_1'], 'tiempo' => $data['tiempo_1'], 'importancia' => $importancia = ($request->has('importancia_1')) ? "Media" : "Baja" ],
-            ['fecha' => $data['fecha'], 'turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_2'], 'descripcion' => $data['descripcion_2'], 'tiempo' => $data['tiempo_2'], 'importancia' => $importancia = ($request->has('importancia_2')) ? "Media" : "Baja" ],
-            ['fecha' => $data['fecha'], 'turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_3'], 'descripcion' => $data['descripcion_3'], 'tiempo' => $data['tiempo_3'], 'importancia' => $importancia = ($request->has('importancia_3')) ? "Media" : "Baja" ],
-            ['fecha' => $data['fecha'], 'turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_4'], 'descripcion' => $data['descripcion_4'], 'tiempo' => $data['tiempo_4'], 'importancia' => $importancia = ($request->has('importancia_4')) ? "Media" : "Baja" ],
-            ['fecha' => $data['fecha'], 'turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_5'], 'descripcion' => $data['descripcion_5'], 'tiempo' => $data['tiempo_5'], 'importancia' => $importancia = ($request->has('importancia_5')) ? "Media" : "Baja" ],
-            ['fecha' => $data['fecha'], 'turno' => $data['turno'], 'jefe_turno' => $data['jefe_turno'], 'codigo_equipo' => $data['codigo_6'], 'descripcion' => $data['descripcion_6'], 'tiempo' => $data['tiempo_6'], 'importancia' => $importancia = ($request->has('importancia_6')) ? "Media" : "Baja" ],
-        ]);
+        for ($i = 1; $i <= 6; $i++) {
+            $descripcionKey = 'descripcion_' . $i;
+            $categoriaKey = 'categoria_' . $i;
+    
+            if (isset($data[$descripcionKey]) && !empty($data[$descripcionKey])) {
+                $importancia = $this->getImportanciaByCategoria($data[$categoriaKey]);
+    
+                $reporte = [
+                    'fecha' => $data['fecha'],
+                    'turno' => $data['turno'],
+                    'jefe_turno' => $data['jefe_turno'],
+                    'categoria' => $data[$categoriaKey],
+                    'codigo_equipo' => $data['codigo_' . $i],
+                    'descripcion' => $data[$descripcionKey],
+                    'tiempo' => $data['tiempo_' . $i],
+                    'importancia' => $importancia,
+                ];
+    
+                $reportes[] = $reporte;
+            }
+        }
+    
+        if (!empty($reportes)) {
+            $request->user()->reports()->createMany($reportes);
+        }
+
+        // Mensaje de confirmacion
+        // en la documentacion el ejemplo es $request->session()->flash('status', 'Task was successful!') pero muestra mensaje de error en el editor de codigo
+        session()->flash('success', 'El reporte se ha enviado correctamente 👍');
 
         return redirect(route('nuevo-reporte.index'));
     }
@@ -117,5 +134,28 @@ class ReportsController extends Controller
     public function destroy(Reports $reports)
     {
         //
+    }
+
+    private function getImportanciaByCategoria($categoria)
+    {
+        $importancia = 'Baja';
+
+        switch ($categoria) {
+            case 'Mantto. de equipo':
+            case 'Cambio de equipo':
+            case 'OT programada':
+                $importancia = 'Baja';
+                break;
+            case 'Modificación de equipo':
+            case 'Emergencia planta':
+                $importancia = 'Media';
+                break;
+            case 'Otros':
+                $importancia = 'Baja';
+                break;
+            // Puedes agregar más casos si es necesario
+        }
+
+        return $importancia;
     }
 }

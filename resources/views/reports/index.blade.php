@@ -15,7 +15,7 @@
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col-md-4">
                                                             <label class="small mb-1" for="fecha">Fecha</label>          
-                                                            <input class="form-control" type="date" id="fecha" name="fecha" required>
+                                                            <input class="form-control" type="date" id="fecha" name="fecha" required autofocus>
                                                         </div>
                                                         <div class="mb-3 col-md-4">
                                                             <label class="small mb-1" for="turno">Turno</label>
@@ -192,6 +192,12 @@
                                                         <button class="btn btn-primary" type="submit">{{ __('Enviar reporte') }}</button>
                                                     </div>
                                                 </form>
+
+                                                @if (session('success'))
+                                                    <div class="alert alert-success mt-2" role="alert">
+                                                        {{ session('success') }}
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -214,11 +220,11 @@
             <input type="hidden" id="fila" name="fila"/>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label"><i data-feather="log-out"></i> Código de equipo saliente</label>
-            <input type="text" class="form-control" id="cod_equipo_saliente" name="cod_equipo_saliente" value="">
+            <input type="text" class="form-control" id="cod_equipo_saliente" name="cod_equipo_saliente">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label"><i data-feather="log-in"></i> Código de equipo entrante</label>
-            <input type="text" class="form-control" id="cod_equipo_entrante" name="cod_equipo_entrante" value="">
+            <input type="text" class="form-control" id="cod_equipo_entrante" name="cod_equipo_entrante">
           </div>
         </form>
       </div>
@@ -293,11 +299,12 @@ select_6.addEventListener('change', function(evt) {
     }
 });
 
+//funcion para guardar el cambio de equipo
 function guardarModalCambio () {
     var fila = document.modalCambio.fila.value
     var cod_equipo_saliente = document.modalCambio.cod_equipo_saliente.value
     var cod_equipo_entrante = document.modalCambio.cod_equipo_entrante.value
-    document.getElementById(fila).value = 'Sale ' + cod_equipo_saliente + ', ingresa ' + cod_equipo_entrante + '.'
+    document.getElementById(fila).value = 'Sale ' + cod_equipo_saliente + ', ingresa ' + cod_equipo_entrante + '. '
     var myModal = bootstrap.Modal.getInstance(document.getElementById('modalCambioEquipo'))
     myModal.hide()
 }

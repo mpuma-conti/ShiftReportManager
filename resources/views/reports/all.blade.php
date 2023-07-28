@@ -15,6 +15,7 @@
                                         <tr>
                                             <th>Fecha</th>
                                             <th>Turno</th>
+                                            <th>Especialidad</th>
                                             <th>Responsable</th>
                                             <th>Código de equipo</th>
                                             <th>Descripción</th>
@@ -27,6 +28,7 @@
                                         <tr>
                                             <th>Fecha</th>
                                             <th>Turno</th>
+                                            <th>Especialidad</th>
                                             <th>Responsable</th>
                                             <th>Código de equipo</th>
                                             <th>Descripción</th>
@@ -40,6 +42,7 @@
                                         <tr>
                                             <td>{{ Carbon::parse($report->fecha)->format('d/m/Y') }}</td>
                                             <td>{{ $report->turno }}º</td>
+                                            <td>{{ $report->user->area }}</td>
                                             <td>{{ $report->user->name }}</td>
                                             <td>{{ $report->codigo_equipo }}</td>
                                             <td>{{ $report->descripcion }}</td>
