@@ -11,7 +11,7 @@
                                         </h1>
                                     </div>
                                     <div class="col-12 col-xl-auto mb-3">
-                                        <a class="btn btn-sm btn-light text-primary" href="user-management-list.html">
+                                        <a class="btn btn-sm btn-light text-primary" href="{{ route('reportes.mostrarTodos') }}">
                                             <i class="me-1" data-feather="arrow-left"></i>
                                             Volver a lista de reportes
                                         </a>
@@ -24,32 +24,34 @@
 <div class="container-xl px-4 mt-4">
                         <div class="row">
                             <div class="col-xl-12">
-                                <!-- Account details card-->
+                                <!-- card-->
                                 <div class="card mb-4">
-                                    <div class="card-header">Account Details</div>
+                                    <div class="card-header">Account Details {{ $report->codigo }}</div>
                                     <div class="card-body">
                                         <form>
                                             <!-- Form Row-->
                                             <div class="row gx-3 mb-3">
-                                                <!-- Form Group (first name)-->
                                                 <div class="col-md-4">
-                                                    <label class="small mb-1" for="inputFirstName">First name</label>
-                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie" />
+                                                    <label class="small mb-1" for="fecha">Fecha</label>
+                                                    <input class="form-control" type="date" id="fecha" name="fecha" value="{{ $report->fecha }}" required>
                                                 </div>
-                                                <!-- Form Group (last name)-->
                                                 <div class="col-md-4">
-                                                    <label class="small mb-1" for="inputLastName">Last name</label>
-                                                    <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
+                                                    <label class="small mb-1" for="turno">Turno</label>
+                                                    <select class="form-select" id="turno" name="turno" required>
+                                                                <option value="1">1er turno</option>
+                                                                <option value="2">2do turno</option>
+                                                                <option value="3">3er turno</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label class="small mb-1" for="inputLastName">Last name</label>
                                                     <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
                                                 </div>
                                             </div>
-                                            <!-- Form Group (email address)-->
+                                            <!-- Form Group-->
                                             <div class="mb-3">
-                                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                                <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com" />
+                                                <label class="small mb-1" for="codigo">Código de planta</label>
+                                                <input class="form-control" type="text" name="codigo" value="{{ $report->codigo }}" required>
                                             </div>
                                             <!-- Form Group (Group Selection Checkboxes)-->
                                             <div class="mb-3">
