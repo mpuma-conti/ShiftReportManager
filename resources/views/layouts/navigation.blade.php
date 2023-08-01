@@ -5,7 +5,7 @@
             <!-- * * Tip * * You can use text or an image for your navbar brand.-->
             <!-- * * * * * * When using an image, we recommend the SVG format.-->
             <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="./"><img src="assets/img/logo.png" style="height: 40px;" alt="APP de Mantto"/></a>
+            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="./"><img src="/assets/img/logo.png" style="height: 40px;" alt="APP de Mantto"/></a>
             <!-- Navbar Search Input-->
             <!-- * * Note: * * Visible only on and above the lg breakpoint
             <form class="form-inline me-auto d-none d-lg-block me-3">
@@ -122,7 +122,7 @@
                 <!-- User Dropdown-->
                 <li class="nav-item dropdown no-caret dropdown-user d-md-block me-3">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="img-fluid btn-icon" src="assets/img/illustrations/profiles/profile-2.png" />
+                    <img class="img-fluid btn-icon" src="/assets/img/illustrations/profiles/profile-2.png" />
                         &nbsp
                         <div class="fw-500">{{ Auth::user()->name }}</div>
                         <i class="fas fa-chevron-right dropdown-arrow"></i>

@@ -115,14 +115,14 @@ class ReportsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reports $reports) : View
+
+    //public function edit(Reports $reports) : View //esta era la funcion prefabricada
+    public function edit($report_) : View
     {
-        //
         //$this->authorize('update', $reports);
- 
-        return view('reports.edit', [
-            'report' => $reports,
-        ]);
+        $report = Reports::findOrFail($report_); // Suponiendo que tienes un modelo llamado "Report" que representa los reportes
+        return view('reports.edit', compact('report')); //debe tener el mismo nombre de la variable de la linea anterior
+        
     }
 
     /**

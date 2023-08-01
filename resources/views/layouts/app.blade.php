@@ -7,8 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
         <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
 
@@ -42,7 +42,7 @@
             </div>
         </div>
         </script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="/js/scripts.js"></script>
     
 </body>
 </html>
