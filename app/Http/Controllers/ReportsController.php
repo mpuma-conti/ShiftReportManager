@@ -128,18 +128,34 @@ class ReportsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reports $reports) : RedirectResponse
+    //public function update(Request $request, Reports $reports) : RedirectResponse
+    public function update(Request $request, $report_) : RedirectResponse
     {
         //
-        //$this->authorize('update', $reports);
- 
+        //$this->authorize('update', $reports); 
+        /*
         $validated = $request->validate([
             'descripcion' => 'required|string|max:255',
         ]);
- 
-        $reports->update($validated);
- 
-        return redirect(route('reports.all'));
+        */
+        
+        // Encuentra el reporte que quieres actualizar
+        $report = Reports::findOrFail($report_);
+
+        // Actualiza los campos del reporte con los datos del formulario
+        $report->update([
+            'fecha' => $request->input('fecha'),
+            'turno' => $request->input('turno'),
+            'jefe_turno' => $request->input('jefe_turno'),
+            'categoria' => $request->input('categoria'),
+            'codigo_equipo' => $request->input('codigo'),
+            'descripcion' => $request->input('descripcion'),
+            'tiempo' => $request->input('tiempo'),
+            'importancia' => $request->input('importancia'),
+        ]);
+
+        // Redirige nuevamente a la página de edición con el mensaje de éxito
+        return back()->with('success', 'Reporte actualizado correctamente.');
     }
 
     /**

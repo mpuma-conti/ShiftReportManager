@@ -43,8 +43,8 @@ Route::middleware('auth')->group(function () {
 //la URL es reporte en singular
 Route::middleware('auth')->group(function () {
     Route::get('/reporte/{report}/edit', [ReportsController::class, 'edit'])->name('report.edit');
-    Route::patch('/reporte', [ProfileController::class, 'update'])->name('report.update');
-    Route::delete('/reporte', [ProfileController::class, 'destroy'])->name('report.destroy');
+    Route::patch('/reporte/{report}', [ReportsController::class, 'update'])->name('report.update');
+    Route::delete('/reporte', [ReportsController::class, 'destroy'])->name('report.destroy');
 });
 
 /*Route::get('reportes', function () {

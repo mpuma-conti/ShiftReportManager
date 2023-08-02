@@ -28,7 +28,9 @@
                                 <div class="card mb-4">
                                     <div class="card-header">{{ $report->user->area .' - '. $report->user->name }}</div>
                                     <div class="card-body">
-                                        <form>
+                                        <form method="POST" action="{{ route('report.update', $report) }}">
+                                        @csrf
+                                        @method('patch')
                                             <!-- Form Row-->
                                             <div class="row gx-3 mb-3">
                                                 <div class="col-md-4">
@@ -61,27 +63,46 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="small mb-1" for="descripcion">Descripción de trabajo realizado</label>
-                                                <input class="form-control" type="text" name="descripcion" value="{{ $report->descripcion }}" required>
+                                                <textarea class="lh-base form-control" type="text" name="descripcion" rows="2" maxlength="255">{{ $report->descripcion }}</textarea>
+                                            </div>
+                                            <!-- Form Group-->
+                                            <div class="row gx-3 mb-3">
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1">Categoría</label>
+                                                    <select class="form-select" id="categoria" name="categoria" required>
+                                                                    <option value="Rutinario" {{ $report->categoria == 'Rutinario' ? 'selected' : '' }}>Rutinario</option>
+                                                                    <option value="Mantto. de equipo" {{ $report->categoria == 'Mantto. de equipo' ? 'selected' : '' }}>Mantto. de equipo</option>
+                                                                    <option value="Cambio de equipo" {{ $report->categoria == 'Cambio de equipo' ? 'selected' : '' }}>Cambio de equipo</option>
+                                                                    <option value="Modificación de equipo" {{ $report->categoria == 'Modificación de equipo' ? 'selected' : '' }}>Modificación de equipo</option>
+                                                                    <option value="OT programada" {{ $report->categoria == 'OT programada' ? 'selected' : '' }}>OT programada</option>
+                                                                    <option value="Emergencia planta" {{ $report->categoria == 'Emergencia planta' ? 'selected' : '' }}>Emergencia planta</option>
+                                                                    <option value="Otros" {{ $report->categoria == 'Otros' ? 'selected' : '' }}>Otros</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1 fw-bold">Importancia</label>
+                                                    <select class="form-select" style="border-color: #00ac69;" onfocus="this.style.boxShadow='0 0 0 0.25rem rgba(0, 172, 105, 0.25)';" onblur="this.style.boxShadow='';" id="importancia" name="importancia" required>
+                                                                    <option value="Baja" {{ $report->importancia == 'Baja' ? 'selected' : '' }}>Baja</option>
+                                                                    <option value="Media" {{ $report->importancia == 'Media' ? 'selected' : '' }}>Media</option>
+                                                                    <option value="Alta" {{ $report->importancia == 'Alta' ? 'selected' : '' }}>Alta</option>
+                                                                    <option value="Urgente" {{ $report->importancia == 'Urgente' ? 'selected' : '' }}>Urgente</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="small mb-1">Horas</label>
-                                                <input class="form-control" type="text" name="tiempo" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="small mb-1">Categoría</label>
-                                                <select class="form-select" id="categoria" name="categoria" required>
-                                                                <option value="Rutinario">Rutinario</option>
-                                                                <option value="Mantto. de equipo">Mantto. de equipo</option>
-                                                                <option value="Cambio de equipo">Cambio de equipo</option>
-                                                                <option value="Modificación de equipo">Modificación de equipo</option>
-                                                                <option value="OT programada">OT programada</option>
-                                                                <option value="Emergencia planta">Emergencia planta</option>
-                                                                <option value="Otros">Otros</option>
-                                                </select>
+                                                <label class="small mb-1">Tiempo de ejecución (en horas)</label>
+                                                <input class="form-control" type="text" name="tiempo" value="{{ $report->tiempo }}"required>
                                             </div>
                                             <!-- Submit button-->
-                                            <button class="btn btn-primary" type="button">Save changes</button>
+                                            <button class="btn btn-primary" type="submit">Guardar cambios</button>
                                         </form>
+
+                                        @if (session('success'))
+                                                    <div class="alert alert-success mt-2" role="alert">
+                                                        {{ session('success') }}
+                                                    </div>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
