@@ -198,7 +198,15 @@
                                     <x-responsive-nav-link :href="route('reportes.mostrarTodos')" :active="request()->routeIs('reportes.mostrarTodos')">    
                                         {{ __('Todos') }}
                                     </x-responsive-nav-link>
-                                    <a class="nav-link" href="/">Importantes</a>
+                                    <x-responsive-nav-link :href="route('reportes.mostrarReportesImportantes')" :active="request()->routeIs('reportes.mostrarReportesImportantes')">    
+                                        {{ __('Importantes') }}
+                                    </x-responsive-nav-link>
+                                    <x-responsive-nav-link :href="route('reportes.mostrarReportesElectricos')" :active="request()->routeIs('reportes.mostrarReportesElectricos')">    
+                                        {{ __('Mantto. Eléctrico') }}
+                                    </x-responsive-nav-link>
+                                    <x-responsive-nav-link :href="route('reportes.mostrarReportesMecanicos')" :active="request()->routeIs('reportes.mostrarReportesMecanicos')">    
+                                        {{ __('Mantto. Mecánico') }}
+                                    </x-responsive-nav-link>
                                 </nav>
                             </div>
                             <!-- Sidenav Accordion (Applications)-->

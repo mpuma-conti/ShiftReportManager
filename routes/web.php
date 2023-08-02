@@ -38,6 +38,9 @@ Route::resource('nuevo-reporte', ReportsController::class)
 //URL en plural
 Route::middleware('auth')->group(function () {
     Route::get('/reportes', [ReportsController::class, 'mostrarTodos'])->name('reportes.mostrarTodos');
+    Route::get('/reportes-electricos', [ReportsController::class, 'mostrarReportesElectricos'])->name('reportes.mostrarReportesElectricos');
+    Route::get('/reportes-mecanicos', [ReportsController::class, 'mostrarReportesMecanicos'])->name('reportes.mostrarReportesMecanicos');
+    Route::get('/reportes-importantes', [ReportsController::class, 'mostrarReportesImportantes'])->name('reportes.mostrarReportesImportantes');
 });
 
 //la URL es reporte en singular

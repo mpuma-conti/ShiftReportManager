@@ -32,8 +32,40 @@ class ReportsController extends Controller
         return view('reports.all', [
             'reports' => Reports::with('user')->latest()->get(),
         ]);
-        
-        //return view('reports.index');
+    }
+
+    public function mostrarReportesElectricos() : View
+    {
+        $reports = Reports::whereHas('user', function ($query) {
+            $query->where('area', 'Eléctrico');
+        })->latest()->get();
+    
+        return view('reports.electricos', [
+            'reports' => $reports,
+        ]);
+    }
+
+    public function mostrarReportesMecanicos() : View
+    {
+        $reports = Reports::whereHas('user', function ($query) {
+            $query->where('area', 'Mecánico');
+        })->latest()->get();
+    
+        return view('reports.mecanicos', [
+            'reports' => $reports,
+        ]);
+    }
+
+    public function mostrarReportesImportantes() : View
+    {
+        $reports = Reports::where('importancia', 'Alta')
+                      ->orWhere('importancia', 'Urgente')
+                      ->latest()
+                      ->get();
+
+        return view('reports.importantes', [
+            'reports' => $reports,
+        ]);
     }
 
     /**
@@ -138,7 +170,7 @@ class ReportsController extends Controller
             'descripcion' => 'required|string|max:255',
         ]);
         */
-        
+
         // Encuentra el reporte que quieres actualizar
         $report = Reports::findOrFail($report_);
 
