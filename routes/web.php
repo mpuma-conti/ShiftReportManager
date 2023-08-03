@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\MotorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,11 @@ Route::middleware('auth')->group(function () {
 /*Route::get('reportes', function () {
         return view('reports.all');
 })->name('reportes');*/
+
+//Motores
+Route::middleware('auth')->group(function () {
+    Route::get('/motores-standby', [MotorController::class, 'index'])->name('motores.index');
+});
 
 Route::get('/plantilla', function () {
         return view('plantilla');

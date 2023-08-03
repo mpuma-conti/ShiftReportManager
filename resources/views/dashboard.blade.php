@@ -11,11 +11,11 @@
                                         <div class="row align-items-center">
                                             <div class="col-xl-8 col-xxl-12">
                                                 <div class="text-center text-xl-start text-xxl-center mb-4 mb-xl-0 mb-xxl-4">
-                                                    <h1 class="text-primary">Welcome</h1>
-                                                    <p class="text-gray-700 mb-0">Browse our fully designed UI toolkit! Browse our prebuilt app pages, components, and utilites, and be sure to look at our full documentation!</p>
+                                                    <h1 class="text-primary">Bienvenido</h1>
+                                                    <p class="text-gray-700 mb-0">Aquí podrás gestionar tus reportes diarios, acceder a información detallada de los equipos y administrar órdenes de trabajo con facilidad y eficacia.</p>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4 col-xxl-12 text-center"><img class="img-fluid" src="assets/img/illustrations/at-work.svg" style="max-width: 26rem" /></div>
+                                            <div class="col-xl-4 col-xxl-12 text-center"><img class="img-fluid" src="assets/img/illustrations/at-work.png" style="max-width: 26rem" /></div>
                                         </div>
                                     </div>
                                 </div>
@@ -23,7 +23,7 @@
                             <div class="col-xxl-4 col-xl-6 mb-4">
                                 <div class="card card-header-actions h-100">
                                     <div class="card-header">
-                                        Recent Activity
+                                        Actividad reciente
                                         <div class="dropdown no-caret">
                                             <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="text-gray-500" data-feather="more-vertical"></i></button>
                                             <div class="dropdown-menu dropdown-menu-end animated--fade-in-up" aria-labelledby="dropdownMenuButton">
@@ -124,7 +124,7 @@
                             <div class="col-xxl-4 col-xl-6 mb-4">
                                 <div class="card card-header-actions h-100">
                                     <div class="card-header">
-                                        Progress Tracker
+                                        Progreso de Órdenes de trabajo
                                         <div class="dropdown no-caret">
                                             <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="text-gray-500" data-feather="more-vertical"></i></button>
                                             <div class="dropdown-menu dropdown-menu-end animated--fade-in-up" aria-labelledby="dropdownMenuButton">
