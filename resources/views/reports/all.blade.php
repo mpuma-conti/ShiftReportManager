@@ -10,7 +10,7 @@
 <div class="container-fluid px-4">
                         <div class="card">
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSinFiltros" class="stripe hover">
                                     <thead>
                                         <tr>
                                             <th>Fecha</th>
@@ -60,7 +60,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ route('report.edit', $report) }}"><i data-feather="edit"></i></a>
-                                                <a class="btn btn-datatable btn-icon btn-transparent-dark" href=""><i data-feather="trash-2"></i></a>
+                                                <!--<a class="btn btn-datatable btn-icon btn-transparent-dark" href=""><i data-feather="trash-2"></i></a>-->
                                             </td>
                                         </tr>
                                         @endforeach

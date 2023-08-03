@@ -54,7 +54,7 @@
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <label class="small mb-1">Código de planta</label>
-                                                            <input class="form-control" type="text" placeholder="MP201" name="codigo_1" required>
+                                                            <input class="form-control" type="text" placeholder="MP201" id="codigo_1" name="codigo_1" required>
                                                         </div>
                                                         <div class="mb-3 col-7">
                                                             <label class="small mb-1">Descripción</label>
@@ -85,7 +85,7 @@
                                                             </select>
                                                         </div>    
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="codigo_2">
+                                                            <input class="form-control" type="text" id="codigo_2" name="codigo_2">
                                                         </div>
                                                         <div class="mb-3 col-7">
                                                             <input class="form-control" type="text" id="descripcion_2" name="descripcion_2" maxlength="255">
@@ -108,7 +108,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="codigo_3">
+                                                            <input class="form-control" type="text" id="codigo_3" name="codigo_3">
                                                         </div>
                                                         <div class="mb-3 col-7">
                                                             <input class="form-control" type="text" id="descripcion_3" name="descripcion_3" maxlength="255">
@@ -131,7 +131,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="codigo_4">
+                                                            <input class="form-control" type="text" id="codigo_4" name="codigo_4">
                                                         </div>
                                                         <div class="mb-3 col-7">
                                                             <input class="form-control" type="text" id="descripcion_4" name="descripcion_4" maxlength="255">
@@ -154,7 +154,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="codigo_5">
+                                                            <input class="form-control" type="text" id="codigo_5" name="codigo_5">
                                                         </div>
                                                         <div class="mb-3 col-7">
                                                             <input class="form-control" type="text" id="descripcion_5" name="descripcion_5" maxlength="255">
@@ -177,7 +177,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3 col-2">
-                                                            <input class="form-control" type="text" name="codigo_6">
+                                                            <input class="form-control" type="text" id="codigo_6" name="codigo_6">
                                                         </div>
                                                         <div class="mb-3 col-7">
                                                             <input class="form-control" type="text" id="descripcion_6" name="descripcion_6" maxlength="255">
@@ -308,6 +308,37 @@ function guardarModalCambio () {
     var myModal = bootstrap.Modal.getInstance(document.getElementById('modalCambioEquipo'))
     myModal.hide()
 }
+</script>
+
+<!-- typeahead, para sugerir codigos de equipos al tipear -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        for (let i = 1; i <= 6; i++) {
+            configurarAutocompletar('codigo_' + i);
+        }
+
+        function configurarAutocompletar(inputId) {
+            var campo = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/buscar_campos?q=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#' + inputId).typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            }, {
+                name: 'campos',
+                source: campo
+            });
+        }
+    });
 </script>
 
 </x-app-layout>

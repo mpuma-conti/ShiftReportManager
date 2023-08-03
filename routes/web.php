@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\MotorController;
+use App\Http\Controllers\CodigoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/motores-standby', [MotorController::class, 'index'])->name('motores.index');
 });
+
+//buscar campos para autocompletado
+Route::get('/buscar_campos', [CodigoController::class, 'buscarCodigos']);
 
 Route::get('/plantilla', function () {
         return view('plantilla');

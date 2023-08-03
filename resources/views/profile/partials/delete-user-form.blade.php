@@ -46,9 +46,11 @@
                     {{ __('Cancelar') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3">
+                <!--
+                    <x-danger-button class="ml-3">
                     {{ __('Borrar cuenta') }}
                 </x-danger-button>
+                -->
             </div>
         </form>
     </x-modal>

@@ -10,7 +10,7 @@
 <div class="container-fluid px-4">
                         <div class="card">
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="stripe hover">
                                     <thead>
                                         <tr>
                                             <th>Fecha</th>
