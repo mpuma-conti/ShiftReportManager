@@ -64,8 +64,11 @@ Route::middleware('auth')->group(function () {
 //buscar campos para autocompletado
 Route::get('/buscar_campos', [CodigoController::class, 'buscarCodigos']);
 
+//Aire instrumental
+
+
 Route::get('/plantilla', function () {
-        return view('plantilla');
+        return view('aire.new');
 })->name('plantilla');
 
 require __DIR__.'/auth.php';

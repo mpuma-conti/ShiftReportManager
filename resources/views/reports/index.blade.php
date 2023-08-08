@@ -317,6 +317,7 @@ function guardarModalCambio () {
     $(document).ready(function() {
         for (let i = 1; i <= 6; i++) {
             configurarAutocompletar('codigo_' + i);
+            restringirCaracteres('codigo_' + i);
         }
 
         function configurarAutocompletar(inputId) {
@@ -336,6 +337,21 @@ function guardarModalCambio () {
             }, {
                 name: 'campos',
                 source: campo
+            });
+        }
+
+        function restringirCaracteres(inputId) {
+            $('#' + inputId).on('input', function() {
+                // Obtener el valor actual del campo
+                let currentValue = this.value;
+
+                // Reemplazar cualquier ocurrencia del carácter "-" con una cadena vacía
+                let sanitizedValue = currentValue.replace(/-/g, "");
+
+                // Si el valor se modificó, actualizar el campo
+                if (currentValue !== sanitizedValue) {
+                    this.value = sanitizedValue;
+                }
             });
         }
     });
