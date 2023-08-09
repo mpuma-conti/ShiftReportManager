@@ -1,17 +1,40 @@
 <x-app-layout>
 
-<div class="container-xl px-4 mt-n10">
+<div class="container-xl px-4">
                         <!-- Wizard card example with navigation-->
                         <div class="card">
+                            <div class="card-header border-bottom">
+                                <!-- Wizard navigation-->
+                                <div class="nav nav-pills nav-justified flex-column flex-xl-row nav-wizard" id="cardTab" role="tablist">
+                                    <!-- Wizard navigation item 1-->
+                                    <a class="nav-item nav-link active" id="wizard1-tab" href="wizard.html#wizard1" data-bs-toggle="tab" role="tab" aria-controls="wizard1" aria-selected="true">
+                                        <div class="wizard-step-icon">1</div>
+                                        <div class="wizard-step-text">
+                                            <div class="wizard-step-text-name">Compresoras</div>
+                                            <!-- <div class="wizard-step-text-details">Basic details and information</div>-->
+                                        </div>
+                                    </a>
+                                    <!-- Wizard navigation item 2-->
+                                    <a class="nav-item nav-link" id="wizard2-tab" href="wizard.html#wizard2" data-bs-toggle="tab" role="tab" aria-controls="wizard2" aria-selected="false">
+                                        <div class="wizard-step-icon">2</div>
+                                        <div class="wizard-step-text">
+                                            <div class="wizard-step-text-name">Tanques pulmón</div>
+                                            <!-- <div class="wizard-step-text-details">Credit card information</div>-->
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
                             <div class="card-body">
                                 <div class="tab-content" id="cardTabContent">
                                     <!-- Wizard tab pane item 1-->
-                                    <div class="tab-pane py-5 py-xl-10 fade show active" id="wizard1" role="tabpanel" aria-labelledby="wizard1-tab">
+                                    <div class="tab-pane py-5 fade show active" id="wizard1" role="tabpanel" aria-labelledby="wizard1-tab">
                                         <div class="row justify-content-center">
                                             <div class="col-xxl-12 col-xl-12">
-                                                <h3 class="text-primary">Control de suministros de aire</h3>
+                                                <h3 class="text-primary">Compresoras</h3>
                                                 <form method="POST" action="{{ route('nuevo-reporte.store') }}">
                                                 @csrf
+                                                    <!-- 
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col-md-4">
                                                             <label class="small mb-1" for="fecha">Fecha</label>          
@@ -38,7 +61,8 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <h5 class="card-title mb-4">Compresoras</h5>
+                                                    -->
+                                                    <h6 class="card-title mb-4">Ten en cuenta que si algún valor es igual a 0 no es necesario completar ese campo. ¡Gracias!</h6>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
                                                         </div>
@@ -57,7 +81,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                            <button class="btn btn-facebook rounded-pill fw-500" type="button">K23 (GA 30)</button>
+                                                            <button class="btn btn-facebook rounded-pill fw-500" type="button">K23</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
@@ -74,7 +98,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                        <button class="btn btn-facebook rounded-pill fw-500" type="button">K24</button>
+                                                        <button class="btn btn-facebook rounded-pill fw-500" type="button">K24 (GA30)</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
@@ -91,7 +115,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                        <button class="btn btn-facebook rounded-pill fw-500" type="button">K25 (GA 37)</button>
+                                                        <button class="btn btn-facebook rounded-pill fw-500" type="button">K25 (GA37)</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
@@ -108,7 +132,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                            <button class="btn btn-facebook rounded-pill fw-500" type="button">G110VSD</button>
+                                                            <button class="btn btn-facebook rounded-pill fw-500" type="button">K36 (G110)</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
@@ -125,7 +149,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                            <button class="btn btn-facebook rounded-pill fw-500" type="button">GA90 (Nuevo)</button>
+                                                            <button class="btn btn-facebook rounded-pill fw-500" type="button">K37 (GA90)</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
@@ -142,7 +166,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                            <button class="btn btn-teal rounded-pill fw-500" type="button">GA15 (Cat Etpsa.)</button>
+                                                            <button class="btn btn-teal rounded-pill fw-500" type="button">GA15 (Cat Etpsa)</button>
                                                         
                                                         </div>
                                                         <div class="mb-3 col">
@@ -160,7 +184,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                            <button class="btn btn-yellow rounded-pill fw-500" type="button">GA22 (Planta DOT)</button>
+                                                            <button class="btn btn-yellow rounded-pill fw-500" type="button">K70 (GA22 DOT)</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
@@ -177,7 +201,7 @@
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col">
-                                                            <button class="btn btn-twitter rounded-pill fw-500" type="button">K800A (GA 22 B. Zinc)</button>
+                                                            <button class="btn btn-twitter rounded-pill fw-500" type="button">K800A (GA22 B. Zinc)</button>
                                                         </div>
                                                         <div class="mb-3 col">
                                                             <input class="form-control" type="text" id="presion_1" name="presion_1">
