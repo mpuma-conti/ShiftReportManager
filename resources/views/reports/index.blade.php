@@ -54,22 +54,26 @@
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <label class="small mb-1">Código de planta</label>
-                                                            <input class="form-control" type="text" placeholder="MP201" id="codigo_1" name="codigo_1" required>
+                                                            <input class="form-control" type="text" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sin guión o espacio" placeholder="MP201" id="codigo_1" name="codigo_1" required>
                                                         </div>
-                                                        <div class="mb-3 col-7">
+                                                        <div class="mb-3 col-5">
                                                             <label class="small mb-1">Descripción</label>
                                                             <input class="form-control" type="text" id="descripcion_1" name="descripcion_1" maxlength="255" required>
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <label class="small mb-1">Criticidad</label>
+                                                            <select class="form-select" name="importancia_1" required>
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Baja">Baja</option>
+                                                                <option value="Media">Media</option>
+                                                                <option value="Alta">Alta</option>
+                                                                <option value="Urgente">Urgente</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-1">
                                                             <label class="small mb-1">Horas</label>
                                                             <input class="form-control" type="text" placeholder="8" name="tiempo_1" required>
                                                         </div>
-                                                        <!--
-                                                        <div class="mb-3 col-2 form-check form-switch" style="padding-left: 0px;">
-                                                            <label class="small mb-1">¿Importante?</label>
-                                                            <input type="checkbox" class="form-check-input" style="margin-left: 0px; width: 42px; height: 22px;" name="importancia_1">
-                                                        </div>
-                                                        -->
                                                     </div>
                                                     <div class="row gx-3">
                                                         <div class="mb-3 col-2">
@@ -87,8 +91,17 @@
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" id="codigo_2" name="codigo_2">
                                                         </div>
-                                                        <div class="mb-3 col-7">
+                                                        <div class="mb-3 col-5">
                                                             <input class="form-control" type="text" id="descripcion_2" name="descripcion_2" maxlength="255">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" name="importancia_2">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Baja">Baja</option>
+                                                                <option value="Media">Media</option>
+                                                                <option value="Alta">Alta</option>
+                                                                <option value="Urgente">Urgente</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_2">
@@ -110,8 +123,17 @@
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" id="codigo_3" name="codigo_3">
                                                         </div>
-                                                        <div class="mb-3 col-7">
+                                                        <div class="mb-3 col-5">
                                                             <input class="form-control" type="text" id="descripcion_3" name="descripcion_3" maxlength="255">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" name="importancia_3">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Baja">Baja</option>
+                                                                <option value="Media">Media</option>
+                                                                <option value="Alta">Alta</option>
+                                                                <option value="Urgente">Urgente</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_3">
@@ -133,8 +155,17 @@
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" id="codigo_4" name="codigo_4">
                                                         </div>
-                                                        <div class="mb-3 col-7">
+                                                        <div class="mb-3 col-5">
                                                             <input class="form-control" type="text" id="descripcion_4" name="descripcion_4" maxlength="255">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" name="importancia_4">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Baja">Baja</option>
+                                                                <option value="Media">Media</option>
+                                                                <option value="Alta">Alta</option>
+                                                                <option value="Urgente">Urgente</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_4">
@@ -156,8 +187,17 @@
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" id="codigo_5" name="codigo_5">
                                                         </div>
-                                                        <div class="mb-3 col-7">
+                                                        <div class="mb-3 col-5">
                                                             <input class="form-control" type="text" id="descripcion_5" name="descripcion_5" maxlength="255">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" name="importancia_5">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Baja">Baja</option>
+                                                                <option value="Media">Media</option>
+                                                                <option value="Alta">Alta</option>
+                                                                <option value="Urgente">Urgente</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_5">
@@ -179,8 +219,17 @@
                                                         <div class="mb-3 col-2">
                                                             <input class="form-control" type="text" id="codigo_6" name="codigo_6">
                                                         </div>
-                                                        <div class="mb-3 col-7">
+                                                        <div class="mb-3 col-5">
                                                             <input class="form-control" type="text" id="descripcion_6" name="descripcion_6" maxlength="255">
+                                                        </div>
+                                                        <div class="mb-3 col-2">
+                                                            <select class="form-select" name="importancia_6">
+                                                                <option value="" selected disabled hidden></option>  
+                                                                <option value="Baja">Baja</option>
+                                                                <option value="Media">Media</option>
+                                                                <option value="Alta">Alta</option>
+                                                                <option value="Urgente">Urgente</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3 col-1">
                                                             <input class="form-control" type="text" name="tiempo_6">

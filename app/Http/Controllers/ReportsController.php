@@ -107,7 +107,7 @@ class ReportsController extends Controller
             $categoriaKey = 'categoria_' . $i;
     
             if (isset($data[$descripcionKey]) && !empty($data[$descripcionKey])) {
-                $importancia = $this->getImportanciaByCategoria($data[$categoriaKey]);
+                //$importancia = $this->getImportanciaByCategoria($data[$categoriaKey]);
     
                 $reporte = [
                     'fecha' => $data['fecha'],
@@ -117,7 +117,8 @@ class ReportsController extends Controller
                     'codigo_equipo' => $data['codigo_' . $i],
                     'descripcion' => $data[$descripcionKey],
                     'tiempo' => $data['tiempo_' . $i],
-                    'importancia' => $importancia,
+                    //'importancia' => $importancia,
+                    'importancia' => $data['importancia_' . $i],
                 ];
     
                 $reportes[] = $reporte;
