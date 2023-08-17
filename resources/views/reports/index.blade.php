@@ -54,7 +54,7 @@
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <label class="small mb-1">Código de planta</label>
-                                                            <input class="form-control" type="text" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sin guión o espacio" placeholder="MP201" id="codigo_1" name="codigo_1" required>
+                                                            <input class="form-control" type="text" data-bs-toggle="tooltip" data-bs-placement="left" title="Sin guión o espacio" placeholder="MP201" id="codigo_1" name="codigo_1" required>
                                                         </div>
                                                         <div class="mb-3 col-5">
                                                             <label class="small mb-1">Descripción</label>
