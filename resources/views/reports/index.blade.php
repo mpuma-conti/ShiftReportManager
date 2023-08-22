@@ -58,7 +58,7 @@
                                                         </div>
                                                         <div class="mb-3 col-5">
                                                             <label class="small mb-1">Descripción</label>
-                                                            <input class="form-control" type="text" id="descripcion_1" name="descripcion_1" maxlength="255" required>
+                                                            <input class="form-control" type="text" id="descripcion_1" name="descripcion_1" maxlength="1023" required>
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <label class="small mb-1">Criticidad</label>
@@ -92,7 +92,7 @@
                                                             <input class="form-control" type="text" id="codigo_2" name="codigo_2">
                                                         </div>
                                                         <div class="mb-3 col-5">
-                                                            <input class="form-control" type="text" id="descripcion_2" name="descripcion_2" maxlength="255">
+                                                            <input class="form-control" type="text" id="descripcion_2" name="descripcion_2" maxlength="1023">
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <select class="form-select" name="importancia_2">
@@ -124,7 +124,7 @@
                                                             <input class="form-control" type="text" id="codigo_3" name="codigo_3">
                                                         </div>
                                                         <div class="mb-3 col-5">
-                                                            <input class="form-control" type="text" id="descripcion_3" name="descripcion_3" maxlength="255">
+                                                            <input class="form-control" type="text" id="descripcion_3" name="descripcion_3" maxlength="1023">
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <select class="form-select" name="importancia_3">
@@ -156,7 +156,7 @@
                                                             <input class="form-control" type="text" id="codigo_4" name="codigo_4">
                                                         </div>
                                                         <div class="mb-3 col-5">
-                                                            <input class="form-control" type="text" id="descripcion_4" name="descripcion_4" maxlength="255">
+                                                            <input class="form-control" type="text" id="descripcion_4" name="descripcion_4" maxlength="1023">
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <select class="form-select" name="importancia_4">
@@ -188,7 +188,7 @@
                                                             <input class="form-control" type="text" id="codigo_5" name="codigo_5">
                                                         </div>
                                                         <div class="mb-3 col-5">
-                                                            <input class="form-control" type="text" id="descripcion_5" name="descripcion_5" maxlength="255">
+                                                            <input class="form-control" type="text" id="descripcion_5" name="descripcion_5" maxlength="1023">
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <select class="form-select" name="importancia_5">
@@ -220,7 +220,7 @@
                                                             <input class="form-control" type="text" id="codigo_6" name="codigo_6">
                                                         </div>
                                                         <div class="mb-3 col-5">
-                                                            <input class="form-control" type="text" id="descripcion_6" name="descripcion_6" maxlength="255">
+                                                            <input class="form-control" type="text" id="descripcion_6" name="descripcion_6" maxlength="1023">
                                                         </div>
                                                         <div class="mb-3 col-2">
                                                             <select class="form-select" name="importancia_6">

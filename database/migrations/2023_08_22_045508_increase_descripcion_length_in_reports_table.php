@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //no se usa esta tabla, se usa en su lugar import_equipos
-        Schema::create('codigos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('reports', function (Blueprint $table) {
+            $table->string('descripcion', 1023)->nullable()->change();
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('codigos');
+        Schema::table('reports', function (Blueprint $table) {
+            //
+        });
     }
 };
