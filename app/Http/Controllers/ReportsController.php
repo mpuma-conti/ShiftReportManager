@@ -16,13 +16,18 @@ class ReportsController extends Controller
      */
     public function index() : View
     {
-        //
         
+        /*
         return view('reports.index', [
             'reports' => Reports::with('user')->latest()->get(),
         ]);
-        
-        //return view('reports.index');
+        */
+        return view('reports.index');
+    }
+
+    public function newReporteMaquinaria() : View
+    {
+        return view('reports.newMaquinaria');
     }
 
     public function mostrarTodos() : View
@@ -52,6 +57,18 @@ class ReportsController extends Controller
         })->latest()->get();
     
         return view('reports.mecanicos', [
+            'reports' => $reports,
+        ]);
+    }
+
+    public function mostrarReportesMaquinarias() : View
+    {
+        //electricos y mecanicos podrian hacer trabajos en la maquinaria
+        $reports = Reports::whereIn('categoria', ['Mantto. Preventivo', 'Mantto. Correctivo', 'Emergencia'])
+        ->latest()
+        ->get();
+    
+        return view('reports.maquinarias', [
             'reports' => $reports,
         ]);
     }
@@ -134,6 +151,45 @@ class ReportsController extends Controller
         session()->flash('success', 'El reporte se ha enviado correctamente 👍');
 
         return redirect(route('nuevo-reporte.index'));
+    }
+
+    public function storeMaquinaria(Request $request) : RedirectResponse
+    {
+       
+        $data = $request->all();
+
+        $reportes = [];
+
+        for ($i = 1; $i <= 6; $i++) {
+            $descripcionKey = 'descripcion_' . $i;
+            $categoriaKey = 'categoria_' . $i;
+    
+            if (isset($data[$descripcionKey]) && !empty($data[$descripcionKey])) {
+                    
+                $reporte = [
+                    'fecha' => $data['fecha'],
+                    'turno' => $data['turno'],
+                    'jefe_turno' => $data['jefe_turno'],
+                    'categoria' => $data[$categoriaKey],
+                    'codigo_equipo' => $data['codigo_' . $i],
+                    'descripcion' => $data[$descripcionKey],
+                    'tiempo' => $data['tiempo_' . $i],
+                    'importancia' => $data['importancia_' . $i],
+                ];
+    
+                $reportes[] = $reporte;
+            }
+        }
+    
+        if (!empty($reportes)) {
+            $request->user()->reports()->createMany($reportes);
+        }
+
+        // Mensaje de confirmacion
+        // en la documentacion el ejemplo es $request->session()->flash('status', 'Task was successful!') pero muestra mensaje de error en el editor de codigo
+        session()->flash('success', 'El reporte se ha enviado correctamente 👍');
+
+        return redirect(route('reportes.newReporteMaquinaria'));
     }
 
     /**

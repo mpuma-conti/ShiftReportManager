@@ -188,6 +188,10 @@
                                 <div class="nav-link-icon"><i data-feather="tool"></i></div>    
                                 {{ __('Ingresar Reporte Diario') }}
                             </x-responsive-nav-link>
+                            <x-responsive-nav-link :href="route('reportes.newReporteMaquinaria')" :active="request()->routeIs('reportes.newReporteMaquinaria')">
+                                <div class="nav-link-icon"><i data-feather="truck"></i></div>    
+                                {{ __('Ingresar Reporte de Maquinarias') }}
+                            </x-responsive-nav-link>
                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="nav-link-icon"><i data-feather="grid"></i></div>
                                 Ver Reportes
@@ -206,6 +210,9 @@
                                     </x-responsive-nav-link>
                                     <x-responsive-nav-link :href="route('reportes.mostrarReportesMecanicos')" :active="request()->routeIs('reportes.mostrarReportesMecanicos')">    
                                         {{ __('Mantto. Mecánico') }}
+                                    </x-responsive-nav-link>
+                                    <x-responsive-nav-link :href="route('reportes.mostrarReportesMaquinarias')" :active="request()->routeIs('reportes.mostrarReportesMaquinarias')">    
+                                        {{ __('Mantto. Maquinarias') }}
                                     </x-responsive-nav-link>
                                 </nav>
                             </div>
