@@ -73,10 +73,18 @@ Route::middleware('auth')->group(function () {
 Route::get('/buscar_campos', [CodigoController::class, 'buscarCodigos']);
 
 //Aire instrumental
-
-
 Route::get('/plantilla', function () {
         return view('aire.new');
 })->name('plantilla');
+
+//Reportes Looker
+Route::get('/panel-presiones-aire', function () {
+    return view('sensores.presiones');
+})->middleware(['auth'])->name('sensores.presiones');
+
+//Estacion de gas
+Route::get('/estacion-gas', function () {
+    return view('sensores.gas');
+})->middleware(['auth'])->name('sensores.gas');
 
 require __DIR__.'/auth.php';

@@ -246,6 +246,22 @@
                                     <a class="nav-link" href="javascript:void(0);">Instrumental</a>
                                 </nav>
                             </div>
+                            <!-- Experimentos -->
+                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseExperimentos" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="nav-link-icon"><i data-feather="monitor"></i></div>
+                                Experimentos
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseExperimentos" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
+                                    <x-responsive-nav-link :href="route('sensores.gas')" :active="request()->routeIs('sensores.gas')">    
+                                        {{ __('Estación de gas') }}
+                                    </x-responsive-nav-link>
+                                    <x-responsive-nav-link :href="route('sensores.presiones')" :active="request()->routeIs('sensores.presiones')">    
+                                        {{ __('Panel de presiones de aire') }}
+                                    </x-responsive-nav-link>
+                                </nav>
+                            </div>
                             <!-- Sidenav Heading (UI Toolkit)-->
                             <div class="sidenav-menu-heading">Motores</div>
                             <!-- Sidenav Accordion (Layout)-->
