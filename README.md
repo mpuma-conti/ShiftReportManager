@@ -22,10 +22,8 @@ ShiftReportManager is a web-based application that allows workers to log and man
 ## Tech Stack
 
 - **Backend:** Laravel (PHP)
-- **Frontend:** Filament (Laravel Admin Panel)
 - **Database:** MySQL / MariaDB
-- **Authentication:** Laravel Breeze / Sanctum (recommended)
-- **Deployment:** Docker / Ubuntu Server (optional)
+- **Authentication:** Laravel Breeze
 
 ## License
 
